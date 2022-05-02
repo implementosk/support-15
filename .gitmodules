@@ -1,0 +1,4 @@
+[submodule "sk_invoice"]
+	path = sk_invoice
+	url = git@github.com:implementosk/sk_invoice.git
+	branch = 15.0
