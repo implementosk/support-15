@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <data>
+        <record id="helpdesk_ticket_related_tasks" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.related.tasks</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_timesheet.helpdesk_ticket_view_form_inherit_helpdesk_timesheet"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='tag_ids']" position="after">
+                        <field name="rel_task_id"/>
+                    </xpath>
+                    <xpath expr="//button[@name='assign_ticket_to_self']" position="after">
+                        <button class="btn-primary" name="create_new_task" type="object" string="Create Task"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id='helpdesk_create_task_form' model='ir.ui.view'>
+            <field name='name'>helpdesk.create.task.form</field>
+            <field name='model'>helpdesk.task.wizard</field>
+            <field name='arch' type='xml'>
+                <form string="Create New Task">
+                    <sheet>
+                        <group>
+                            <field name='project_id'/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string='Create' type='object'
+                                name='action_done'
+                                class='btn-primary'/>
+                        <button string='Cancel' class='btn-default' special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>
